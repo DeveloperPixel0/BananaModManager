@@ -1,0 +1,3 @@
+hello Welcome To The Banana Mod Manager!
+
+!IT TAKES A WHILE TO LOAD WHEN LAUNCHED IT DEPENDS ON WHAT PC YOU HAVE!
