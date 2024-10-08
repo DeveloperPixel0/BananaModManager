@@ -1,5 +1,5 @@
 # Banana Mod Manager
-![Preview](https://i.imgur.com/Z3Ikc6L.png)
+![Preview](https://i.imgur.com/wnA05MN.png)
 
 This program will install custom mods into Capuchin automatically, and can be re-run in order to update the mods
 
