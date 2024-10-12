@@ -1,7 +1,0 @@
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.csproj.AssemblyReference.cache
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.FormMain.resources
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.FormSelectPlatform.resources
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.Properties.Resources.resources
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.csproj.GenerateResource.cache
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\MonkeModManager.csproj.CoreCompileInputs.cache
-C:\Users\britt\source\repos\BananaModManager\MonkeModManager\obj\Debug\BananaModManager.Properties.Resources.resources
