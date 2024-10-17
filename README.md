@@ -1,6 +1,8 @@
 # Banana Mod Manager
 ![Preview](https://i.imgur.com/LMQKYb0.png)
 
+# WINDOWS DEFENDER FALSELY DETECTS IT AS A VIRUS!
+
 This program will install custom mods into Capuchin automatically, and can be re-run in order to update the mods
 
 The program currently supports
