@@ -1,0 +1,6 @@
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.AssemblyReference.cache
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\MonkeModManager.FormMain.resources
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\MonkeModManager.FormSelectPlatform.resources
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.Properties.Resources.resources
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.GenerateResource.cache
+C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.CoreCompileInputs.cache
