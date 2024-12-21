@@ -69,30 +69,33 @@ namespace MonkeModManager
         private void LoadReleases()
         {
 #if !DEBUG
-            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
-            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
+    var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
+    var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
 #else
             var decoded = JSON.Parse(File.ReadAllText("C:/Users/Steven/Desktop/testmods.json"));
 #endif
-            var allMods = decodedMods.AsArray;
-            var allGroups = decodedGroups.AsArray;
+            List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
+            List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
 
-            for (int i = 0; i < allMods.Count; i++)
+            var allMods = decodedMods.ToArray();
+            var allGroups = decodedGroups.ToArray();
+
+            for (int i = 0; i < allMods.Length; i++)
             {
                 JSONNode current = allMods[i];
                 ReleaseInfo release = new ReleaseInfo(current["name"], current["author"], current["version"], current["group"], current["download_url"], current["install_location"], current["git_path"], current["dependencies"].AsArray);
-                //UpdateReleaseInfo(ref release);
                 releases.Add(release);
             }
 
+            // If allGroups is just a list of strings, you can order them alphabetically
+            var orderedGroups = allGroups.OrderBy(x => x).ToList();
 
-            allGroups.Linq.OrderBy(x => x.Value["rank"]);
-            for (int i = 0; i < allGroups.Count; i++)
+            for (int i = 0; i < orderedGroups.Count; i++)
             {
-                JSONNode current = allGroups[i];
-                if (releases.Any(x => x.Group == current["name"]))
+                string current = orderedGroups[i];
+                if (releases.Any(x => x.Group == current))
                 {
-                    groups.Add(current["name"], groups.Count());
+                    groups.Add(current, groups.Count());
                 }
             }
             groups.Add("Uncategorized", groups.Count());
@@ -104,7 +107,6 @@ namespace MonkeModManager
                     releases.Where(x => x.Name == dep).FirstOrDefault()?.Dependents.Add(release.Name);
                 }
             }
-            //WriteReleasesToDisk();
         }
 
         private void LoadRequiredPlugins()

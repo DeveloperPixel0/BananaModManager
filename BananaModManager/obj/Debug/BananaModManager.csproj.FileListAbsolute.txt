@@ -4,3 +4,14 @@ C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManag
 C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.Properties.Resources.resources
 C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.GenerateResource.cache
 C:\Users\CrystalInVR!\Downloads\BananaModManager\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.CoreCompileInputs.cache
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.AssemblyReference.cache
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\MonkeModManager.FormMain.resources
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\MonkeModManager.FormSelectPlatform.resources
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.Properties.Resources.resources
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.GenerateResource.cache
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.csproj.CoreCompileInputs.cache
+D:\Unity Stuff\BananaModManager\BananaModManager\bin\Debug\BananaModManager.exe.config
+D:\Unity Stuff\BananaModManager\BananaModManager\bin\Debug\BananaModManager.exe
+D:\Unity Stuff\BananaModManager\BananaModManager\bin\Debug\BananaModManager.pdb
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.exe
+D:\Unity Stuff\BananaModManager\BananaModManager\obj\Debug\BananaModManager.pdb
