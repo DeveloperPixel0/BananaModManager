@@ -203,7 +203,7 @@ namespace MonkeModManager
                         string dir;
                         if (release.InstallLocation == null)
                         {
-                            dir = Path.Combine(InstallDirectory, @"BepInEx\plugins", Regex.Replace(release.Name, @"\s+", string.Empty));
+                            dir = Path.Combine(InstallDirectory, @"Mods", Regex.Replace(release.Name, @"\s+", string.Empty));
                             if (!Directory.Exists(dir)) Directory.CreateDirectory(dir);
                         }
                         else
@@ -212,7 +212,7 @@ namespace MonkeModManager
                         }
                         File.WriteAllBytes(Path.Combine(dir, fileName), file);
 
-                        var dllFile = Path.Combine(InstallDirectory, @"BepInEx\plugins", fileName);
+                        var dllFile = Path.Combine(InstallDirectory, @"Mods", fileName);
                         if (File.Exists(dllFile))
                         {
                             File.Delete(dllFile);
@@ -220,7 +220,20 @@ namespace MonkeModManager
                     }
                     else
                     {
-                        UnzipFile(file, (release.InstallLocation != null) ? Path.Combine(InstallDirectory, release.InstallLocation) : InstallDirectory);
+                        if (!release.Name.Contains("MelonLoader"))
+                        {
+                            UnzipFile(file, (release.InstallLocation != null) ? Path.Combine(InstallDirectory, release.InstallLocation) : InstallDirectory);
+                        }
+                        else
+                        {
+                            UnzipFile(file, InstallDirectory);
+
+                            // necessary MelonLoader folders
+                            Directory.CreateDirectory(InstallDirectory + @"\Mods");
+                            Directory.CreateDirectory(InstallDirectory + @"\Plugins");
+                            Directory.CreateDirectory(InstallDirectory + @"\UserData");
+                            Directory.CreateDirectory(InstallDirectory + @"\UserLibs");
+                        }
                     }
                     UpdateStatus(string.Format("Installed {0}!", release.Name));
                 }
