@@ -753,7 +753,7 @@ namespace MonkeModManager
         }
         private string GetSteamLocation()
         {
-            string path = RegistryWOW6432.GetRegKey64(RegHive.HKEY_LOCAL_MACHINE, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 1533390", @"InstallLocation");
+            string path = RegistryWOW6432.GetRegKey64(RegHive.HKEY_LOCAL_MACHINE, @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 2767950", @"InstallLocation");
             if (path != null)
             {
                 path = path + @"\";
