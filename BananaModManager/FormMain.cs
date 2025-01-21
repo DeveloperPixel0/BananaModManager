@@ -68,11 +68,11 @@ namespace MonkeModManager
 
         private void LoadReleases()
         {
-#if !DEBUG
-    var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
-    var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
+            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
+            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
 #else
-            var decoded = JSON.Parse(File.ReadAllText("C:/Users/Steven/Desktop/testmods.json"));
+            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
+            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
 #endif
             List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
             List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
