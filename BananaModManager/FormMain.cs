@@ -220,7 +220,7 @@ namespace MonkeModManager
                     }
                     else
                     {
-                        if (!release.Name.Contains("MelonLoader"))
+                        if (!release.Name.Contains("MelonLoader") && !release.Name.Contains("BepInEx"))
                         {
                             UnzipFile(file, (release.InstallLocation != null) ? Path.Combine(InstallDirectory, release.InstallLocation) : InstallDirectory);
                         }
@@ -229,10 +229,12 @@ namespace MonkeModManager
                             UnzipFile(file, InstallDirectory);
 
                             // necessary MelonLoader folders
-                            Directory.CreateDirectory(InstallDirectory + @"\Mods");
-                            Directory.CreateDirectory(InstallDirectory + @"\Plugins");
-                            Directory.CreateDirectory(InstallDirectory + @"\UserData");
-                            Directory.CreateDirectory(InstallDirectory + @"\UserLibs");
+                            if (release.Name.Contains("MelonLoader") {
+                                Directory.CreateDirectory(InstallDirectory + @"\Mods");
+                                Directory.CreateDirectory(InstallDirectory + @"\Plugins");
+                                Directory.CreateDirectory(InstallDirectory + @"\UserData");
+                                Directory.CreateDirectory(InstallDirectory + @"\UserLibs");
+                            }
                         }
                     }
                     UpdateStatus(string.Format("Installed {0}!", release.Name));
