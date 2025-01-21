@@ -74,8 +74,8 @@ namespace MonkeModManager
             var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
             var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
 #endif
-            List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
-            List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
+            //List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
+            //List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
 
             var allMods = decodedMods.ToArray();
             var allGroups = decodedGroups.ToArray();
@@ -83,7 +83,7 @@ namespace MonkeModManager
             for (int i = 0; i < allMods.Length; i++)
             {
                 JSONNode current = allMods[i];
-                ReleaseInfo release = new ReleaseInfo(current["name"], current["author"], current["version"], current["group"], current["download_url"], current["install_location"], current["git_path"], current["dependencies"].AsArray);
+                ReleaseInfo release = new ReleaseInfo(current["name"], current["author"], current["version"], current["group"], current["download_url"], current["install_location"], current["git_path"], current["dependencies"].AsArray, current["mod_loader"]);
                 releases.Add(release);
             }
 
@@ -212,7 +212,13 @@ namespace MonkeModManager
                         }
                         File.WriteAllBytes(Path.Combine(dir, fileName), file);
 
-                        var dllFile = Path.Combine(InstallDirectory, @"Mods", fileName);
+                        string dllFile;
+                        if (release.Loader == "MelonLoader") {
+                            dllFile = Path.Combine(InstallDirectory, @"Mods", fileName);
+                        else if (release.Loader == "BepInEx") {
+                            dllFile = Path.Combine(InstallDirectory, @"BepInEx", @"plugins", fileName);
+                        }
+                        
                         if (File.Exists(dllFile))
                         {
                             File.Delete(dllFile);
@@ -949,7 +955,7 @@ namespace MonkeModManager
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             
-         Process.Start("https://github.com/DeadlyKitten/MonkeModManager/");
+         Process.Start("https://github.com/DeveloperPixel0/BananaModManager");
             
         }
     }
