@@ -20,7 +20,9 @@ namespace MonkeModManager.Internals
         public bool Install = true;
         public List<string> Dependencies = new List<string>();
         public List<string> Dependents = new List<string>();
-        public ReleaseInfo(string _name, string _author, string _version, string _group, string _link, string _installLocation, string _gitPath, JSONArray dependencies)
+        public string Loader;
+        
+        public ReleaseInfo(string _name, string _author, string _version, string _group, string _link, string _installLocation, string _gitPath, JSONArray dependencies, string mod_loader)
         {
             Name = _name;
             Author = _author;
@@ -31,6 +33,11 @@ namespace MonkeModManager.Internals
             InstallLocation = _installLocation;
             Group = _group;
 
+            if (!(mod_loader == "I_am_a_mod_loader"))
+            {
+                Loader = mod_loader;
+            }
+                
             if (dependencies == null) return;
             for (int i = 0; i < dependencies.Count; i++)
             {
