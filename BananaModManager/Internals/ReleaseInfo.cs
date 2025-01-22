@@ -33,7 +33,7 @@ namespace MonkeModManager.Internals
             InstallLocation = _installLocation;
             Group = _group;
 
-            if (!mod_loader == "I_am_a_mod_loader")
+            if (!(mod_loader == "I_am_a_mod_loader"))
             {
                 Loader = mod_loader;
             }

@@ -68,11 +68,12 @@ namespace MonkeModManager
 
         private void LoadReleases()
         {
+#if !DEBUG
             var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
             var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
 #else
-            var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
-            var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
+            List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
+            List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
 #endif
             //List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
             //List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
@@ -212,14 +213,18 @@ namespace MonkeModManager
                         }
                         File.WriteAllBytes(Path.Combine(dir, fileName), file);
 
-                        string dllFile;
-                        if (release.Loader == "MelonLoader") {
+                        string dllFile = "";
+
+                        if (release.Loader == "MelonLoader")
+                        {
                             dllFile = Path.Combine(InstallDirectory, @"Mods", fileName);
-                        else if (release.Loader == "BepInEx") {
+                        }
+                        else if (release.Loader == "BepInEx")
+                        {
                             dllFile = Path.Combine(InstallDirectory, @"BepInEx", @"plugins", fileName);
                         }
                         
-                        if (File.Exists(dllFile))
+                        if ((dllFile != null) && File.Exists(dllFile))
                         {
                             File.Delete(dllFile);
                         }
@@ -235,7 +240,7 @@ namespace MonkeModManager
                             UnzipFile(file, InstallDirectory);
 
                             // necessary MelonLoader folders
-                            if (release.Name.Contains("MelonLoader") {
+                            if (release.Name.Contains("MelonLoader")) {
                                 Directory.CreateDirectory(InstallDirectory + @"\Mods");
                                 Directory.CreateDirectory(InstallDirectory + @"\Plugins");
                                 Directory.CreateDirectory(InstallDirectory + @"\UserData");
