@@ -68,13 +68,13 @@ namespace MonkeModManager
 
         private void LoadReleases()
         {
-#if !DEBUG
+    #if !DEBUG
             var decodedMods = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json"));
             var decodedGroups = JSON.Parse(DownloadSite("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/groupinfo.json"));
-#else
+    #else
             List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
             List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
-#endif
+    #endif
             //List<string> decodedMods = new List<string> { "Mod1", "Mod2", "Mod3" };
             //List<string> decodedGroups = new List<string> { "Group1", "Group2", "Group3" };
 
@@ -339,7 +339,6 @@ namespace MonkeModManager
                 }
             }
 
-            if (release.Name.Contains("BepInEx")) { e.Item.Checked = true; };
             release.Install = e.Item.Checked;
         }
 
@@ -438,43 +437,6 @@ namespace MonkeModManager
 
         }
 
-        private void buttonBackupCosmetics_Click(object sender, EventArgs e)
-        {
-            var pluginsPath = Path.Combine(InstallDirectory, @"BepInEx\plugins");
-
-            SaveFileDialog saveFileDialog = new SaveFileDialog
-            {
-                InitialDirectory = InstallDirectory,
-                FileName = $"Cosmetics Backup",
-                Filter = "ZIP Folder (.zip)|*.zip",
-                Title = "Save Cosmetics Backup"
-            };
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
-            {
-                UpdateStatus("Backing up cosmetics...");
-                if (File.Exists(saveFileDialog.FileName)) File.Delete(saveFileDialog.FileName);
-                try
-                {
-                    ZipFile.CreateFromDirectory(Path.Combine(pluginsPath, @"GorillaCosmetics\Hats"), saveFileDialog.FileName, CompressionLevel.Optimal, true);
-                    using (ZipArchive archive = ZipFile.Open(saveFileDialog.FileName, ZipArchiveMode.Update))
-                    {
-                        foreach (var f in Directory.GetFiles(Path.Combine(pluginsPath, @"GorillaCosmetics\Materials")))
-                        {
-                            archive.CreateEntryFromFile(f, $"{Path.Combine("Materials", Path.GetFileName(f))}");
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    UpdateStatus("Failed to restore cosmetics.");
-                    return;
-                }
-                UpdateStatus("Backed up cosmetics!");
-            }
-        }
-
         private void buttonRestoreMods_Click(object sender, EventArgs e)
         {
             using (var fileDialog = new OpenFileDialog())
@@ -514,50 +476,6 @@ namespace MonkeModManager
                     {
                         MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         UpdateStatus("Failed to restore mods.");
-                    }
-                }
-            }
-        }
-
-        private void buttonRestoreCosmetics_Click(object sender, EventArgs e)
-        {
-            using (var fileDialog = new OpenFileDialog())
-            {
-                fileDialog.InitialDirectory = InstallDirectory;
-                fileDialog.FileName = "Cosmetics Backup.zip";
-                fileDialog.Filter = "ZIP Folder (.zip)|*.zip";
-                fileDialog.FilterIndex = 1;
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    if (!Path.GetExtension(fileDialog.FileName).Equals(".zip", StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        MessageBox.Show("Invalid file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        UpdateStatus("Failed to restore co0smetics.");
-                        return;
-                    }
-                    var cosmeticsPath = Path.Combine(InstallDirectory, @"BepInEx\plugins\GorillaCosmetics");
-                    try
-                    {
-                        UpdateStatus("Restoring cosmetics...");
-                        using (var archive = ZipFile.OpenRead(fileDialog.FileName))
-                        {
-                            foreach (var entry in archive.Entries)
-                            {
-                                var directory = Path.Combine(InstallDirectory, @"BepInEx\plugins\GorillaCosmetics", Path.GetDirectoryName(entry.FullName));
-                                if (!Directory.Exists(directory))
-                                {
-                                    Directory.CreateDirectory(directory);
-                                }
-
-                                entry.ExtractToFile(Path.Combine(cosmeticsPath, entry.FullName), true);
-                            }
-                        }
-                        UpdateStatus("Successfully restored cosmetics!");
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        UpdateStatus("Failed to restore cosmetics.");
                     }
                 }
             }
@@ -775,9 +693,8 @@ namespace MonkeModManager
         }
         private void CheckDefaultMod(ReleaseInfo release, ListViewItem item)
         {
-            if (release.Name.Contains("BepInEx"))
+            if (release.Name.Contains("BepInEx") || release.Name.Contains("MelonLoader"))
             {
-                item.Checked = true;
                 item.ForeColor = System.Drawing.Color.DimGray;
             }
             else
@@ -883,44 +800,9 @@ namespace MonkeModManager
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelVersion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void GitHubButton_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/DeveloperPixel0/BananaModManager/releases");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void CapuchinDiscordButton_Click(object sender, EventArgs e)
@@ -933,35 +815,9 @@ namespace MonkeModManager
             Process.Start("steam://rungameid/2767950");
         }
 
-        private void labelOpen_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
-         Process.Start("https://github.com/DeveloperPixel0/BananaModManager");
-            
+            Process.Start("https://github.com/DeveloperPixel0/BananaModManager");
         }
     }
     }
