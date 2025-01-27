@@ -260,7 +260,6 @@
             this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 16;
             this.label6.Text = "Forked By:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // groupBox3
             // 
@@ -274,7 +273,6 @@
             this.groupBox3.Size = new System.Drawing.Size(127, 190);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label5
             // 
@@ -284,7 +282,6 @@
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Options";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // CapuchinDiscordButton
             // 
@@ -345,7 +342,6 @@
             this.groupBox2.Size = new System.Drawing.Size(146, 190);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label2
             // 
@@ -399,7 +395,6 @@
             this.labelVersion.Text = "Banana Mod Manager";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.labelVersion.UseMnemonic = false;
-            this.labelVersion.Click += new System.EventHandler(this.labelVersion_Click);
             // 
             // pictureBox1
             // 
@@ -410,7 +405,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // groupBox1
             // 
@@ -423,7 +417,6 @@
             this.groupBox1.Size = new System.Drawing.Size(146, 190);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // buttonBepInEx
             // 
@@ -463,7 +456,6 @@
             this.labelOpen.Size = new System.Drawing.Size(99, 13);
             this.labelOpen.TabIndex = 6;
             this.labelOpen.Text = "Important Folders";
-            this.labelOpen.Click += new System.EventHandler(this.labelOpen_Click);
             // 
             // buttonToggleMods
             // 
