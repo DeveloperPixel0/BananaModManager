@@ -1,6 +1,6 @@
 # Banana Mod Manager
 ![Preview](https://i.imgur.com/LMQKYb0.png)
-> [Join the Discord](https://discord.gg/RpUZygtrxw) for safe third-party mods
+> [Join the Discord](https://discord.gg/awVb24kMxw) for safe third-party mods
 
 BananaModManager is a fork of [MonkeModManager](https://github.com/deadlykitten/monkemodmanager) that will install and update Capuchin mods for you.
 
