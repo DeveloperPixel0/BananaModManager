@@ -11,6 +11,7 @@ The manager currently supports both Capuchin-compatable mod loaders:
 BananaModManager will automatically check for the latest version from the internet to ensure that you will receive the latest version of all of the mods listed.
 
 If you want a mod added to the installer, message one of us on discord (`thelinuxtrans` `xzcowman`)
+If you previously built mods for Gorilla Tag, [this guide](https://github.com/xzcowman/capuchin-bepinex-6-and-you) will help you migrate to Capuchin's mod loader, BepInEx 6.
 
 > [!CAUTION]
 > The `devpixel` account on Discord was recently compromised. Please do not click any links (even if shown as a trusted website) from the account until the account is reaccessed by DevPixel or a new account is assigned.
