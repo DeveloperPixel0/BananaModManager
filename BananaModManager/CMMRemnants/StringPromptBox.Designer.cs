@@ -41,7 +41,6 @@
             this.text.Name = "text";
             this.text.Size = new System.Drawing.Size(418, 20);
             this.text.TabIndex = 0;
-            this.text.TextChanged += new System.EventHandler(this.text_TextChanged);
             // 
             // label
             // 

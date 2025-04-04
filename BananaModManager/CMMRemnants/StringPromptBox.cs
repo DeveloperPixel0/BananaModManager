@@ -30,10 +30,5 @@ namespace BananaModManager.CMMRemnants
                 this.Close();
             };
         }
-
-        private void text_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

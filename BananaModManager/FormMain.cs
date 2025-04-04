@@ -29,6 +29,13 @@ namespace MonkeModManager
         public bool isSteam = true;
         public bool platformDetected = false;
 
+        public List<string> CMMListSources;
+        // from bingus:
+        /*
+            the list manager will handle adding and removing this var automatically, there is no
+            need to manually update it
+        */
+
         public FormMain()
         {
             InitializeComponent();
@@ -87,6 +94,23 @@ namespace MonkeModManager
                 JSONNode current = allMods[i];
                 ReleaseInfo release = new ReleaseInfo(current["name"], current["author"], current["version"], current["group"], current["download_url"], current["install_location"], current["git_path"], current["dependencies"].AsArray, current["mod_loader"]);
                 releases.Add(release);
+            }
+
+            foreach (string releaseURL in CMMListSources) {
+                // for the custom list support, should work most of da time
+                try 
+                {
+                    var mlist = JSON.Parse(DownloadSite(releaseURL));
+
+                    var realmlist = mlist.ToArray();
+
+                    for (int i = 0; i < realmlist.Length; i++)
+                    {
+                        JSONNode current = realmlist[i];
+                        ReleaseInfo release = new ReleaseInfo(current["name"], current["author"], current["version"], current["group"], current["download_url"], current["install_location"], current["git_path"], current["dependencies"].AsArray, current["mod_loader"]);
+                        releases.Add(release);
+                    }
+                } catch () {} // no need to warn the user it's loading everything anyway
             }
 
             // If allGroups is just a list of strings, you can order them alphabetically
