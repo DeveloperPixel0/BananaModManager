@@ -11,6 +11,7 @@ using MonkeModManager.Internals;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using MonkeModManager.Internals.SimpleJSON;
+using BananaModManager.CMMRemnants; // string prompt shit
 using System.Text.RegularExpressions;
 using System.Drawing;
 
