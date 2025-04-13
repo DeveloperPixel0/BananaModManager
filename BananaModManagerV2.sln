@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BananaModManagerV2", "BananaModManagerV2.csproj", "{E20F2D07-8F23-41DA-9107-736073D75A53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E20F2D07-8F23-41DA-9107-736073D75A53}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E20F2D07-8F23-41DA-9107-736073D75A53}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{E20F2D07-8F23-41DA-9107-736073D75A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20F2D07-8F23-41DA-9107-736073D75A53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0242D574-0CCC-4681-953B-EE10D87D0683}
+	EndGlobalSection
+EndGlobal

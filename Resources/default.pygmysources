@@ -1,0 +1,8 @@
+# This is the sources file for the PygmyModManager application
+# You can make comments by using "#"
+
+# Blank lines with no characters will be ignored.
+# Please do not delete this file.
+
+# This is the default source for MonkeModManager
+https://raw.githubusercontent.com/The-Graze/MonkeModInfo/master/modinfo.json
