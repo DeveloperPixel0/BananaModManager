@@ -12,7 +12,7 @@ namespace PygmyModManager
     public partial class Main : Form
     {
         public static List<ReleaseInfo> Mods = new();
-        public static string DisplayName = "";
+        public static string DisplayName = "BananaModManager";
         public static bool LoadMods = true;
 
         public static string InstallDir = @"";
@@ -20,8 +20,6 @@ namespace PygmyModManager
         public Main()
         {
             InitializeComponent();
-
-            FileAssociations.SetAssociation(".txp", "Text++ Interpreter", "Text++ Source File", Assembly.GetExecutingAssembly().Location);
 
             quitToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
 
@@ -31,38 +29,18 @@ namespace PygmyModManager
 
             preferencesToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
 
-            // load reg values
-            try
-            {
-                LoadMods = ((string)Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\CMC\BananaModManager", "LoadModsOnStartup", "YES") == "YES");
-            }
-            catch (Exception _)
-            {
-                LoadMods = true;
-            }
-
-            try
-            {
-                DisplayName = (string)Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\CMC\BananaModManager", "DisplayName", "BananaModManager");
-            }
-            catch (Exception _)
-            {
-                DisplayName = "BananaModManager";
-            }
-
             if (LoadMods)
                 Mods = SourceAgent.GatherSources();
-                RenderMods();
+
+            RenderMods();
 
             InstallDir = FindCapuchin.GetLocation();
 
             this.Text = DisplayName;
         }
 
-        private void searchBox_TextChanged(object sender, EventArgs e)
-        {
+        private void searchBox_TextChanged(object sender, EventArgs e) =>
             RenderMods();
-        }
 
         public void AssignGroupToMod(ReleaseInfo mod, ListViewItem item)
         {
@@ -147,8 +125,20 @@ namespace PygmyModManager
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
-            Installer.InstallMods(modView.CheckedItems, InstallDir);
+            Installer.InstallMods(modView.CheckedItems, InstallDir, true);
             button1.Enabled = true;
+        }
+
+        private void changelo9gToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string changelog =
+                """
+                What's changed: (6/12/25)
+                - New updated installer can gather release information from GitHub (BxMM change)
+                - Fixed current BMM (banana change)
+                """;
+
+            MessageBox.Show(changelog);
         }
     }
 }

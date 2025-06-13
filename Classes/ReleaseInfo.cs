@@ -47,13 +47,10 @@ namespace PygmyModManager.Classes
             GitPath = (_gitPath != null && Name != "BepInEx") ? _gitPath : "NONE";
             InstallLocation = _installLocation;
 
-            if (_name == "BepInEx") { GitPath = "NONE"; } // force it to install the right bepinex
+            if (_name == "BepInEx") { GitPath = "NONE"; }
 
-            if (dependencies == null) return;
             for (int i = 0; i < dependencies.Count; i++)
-            {
                 Dependencies.Add(dependencies[i]);
-            }
         }
     }
 }

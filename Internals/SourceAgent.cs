@@ -86,12 +86,10 @@ namespace PygmyModManager.Internals
             TextPlusPlus.DefineVariable("default", "https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json");
             // ^^^^^^^^ $default
 
-            sources = TextPlusPlus.ParseSourceFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\sources.txp");
+            sources = TextPlusPlus.ParseSourceFile(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\sources_banana.txp");
 
             if (sources.Count == 0)
-            {
                 sources.Add("https://raw.githubusercontent.com/DeveloperPixel0/BananaModInfo/refs/heads/master/modinfo.json");
-            }
 
             List<ReleaseInfo> mods = new();
 
